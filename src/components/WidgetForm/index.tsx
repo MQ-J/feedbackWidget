@@ -65,7 +65,7 @@ export function WidgetForm() {
 
 
       <footer className="text-xl text-neutral-400">
-        Feito com ❤️ pelo <a className="underline underline-offset-2" href="https://github.com/MQ-J">Querino</a>
+        Feito com ❤️ pelo <a className="underline underline-offset-2" href="https://github.com/MQ-J">Marcos Querino</a>
       </footer>
     </div>
   )
