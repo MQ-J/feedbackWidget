@@ -4,25 +4,29 @@ import { FeedbackContentStep } from './Steps/FeedbackContentStep'
 import { FeedbackSucessStep } from './Steps/FeedbackSucessStep'
 import { FeedbackTypeStep } from './Steps/FeedbackTypeStep'
 
+import problemaSvg from "../../assets/bug.svg"
+import ideiaSvg from "../../assets/idea.svg"
+import outroSvg from "../../assets/thought.svg"
+
 export const feedbackTypes = {
   BUG: {
     title: 'problema',
     image: {
-      source: 'https://raw.githubusercontent.com/MQ-J/DW2/master/projeto-spa/web/src/assets/bug.svg',
+      source: problemaSvg,
       alt: 'Imagem de um inseto',
     },
   },
   IDEA: {
     title: 'Ideia',
     image: {
-      source: 'https://raw.githubusercontent.com/MQ-J/DW2/master/projeto-spa/web/src/assets/idea.svg',
+      source: ideiaSvg,
       alt: 'Imagem de uma lâmpada',
     },
   },
   OTHER: {
     title: 'Outro',
     image: {
-      source: 'https://raw.githubusercontent.com/MQ-J/DW2/master/projeto-spa/web/src/assets/thought.svg',
+      source: outroSvg,
       alt: 'Imagem de um balão de pensamento',
     },
   },
@@ -43,20 +47,20 @@ export function WidgetForm() {
   return (
     <div className="bg-zinc-900 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
 
-      { feedbackSend ? (
-      <FeedbackSucessStep onFeedbackRestartRequested={handleRestartFeedback}/>
+      {feedbackSend ? (
+        <FeedbackSucessStep onFeedbackRestartRequested={handleRestartFeedback} />
       ) : (
-      <>
-        {!feedbackType ? (
-          <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType} />
-        ) : (
-          <FeedbackContentStep
-            feedbackType={feedbackType}
-            onFeedbackRestartRequested={handleRestartFeedback}
-            OnFeedbackSend={() => setFeedbackSend(true)}
-          />
-        )}
-      </>
+        <>
+          {!feedbackType ? (
+            <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType} />
+          ) : (
+            <FeedbackContentStep
+              feedbackType={feedbackType}
+              onFeedbackRestartRequested={handleRestartFeedback}
+              OnFeedbackSend={() => setFeedbackSend(true)}
+            />
+          )}
+        </>
       )}
 
 
